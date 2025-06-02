@@ -1,0 +1,322 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.font-title {
+  font-family: var(--font-nunito), sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --primary-light: #ffffff;
+    --primary-dark: #1a1a1a;
+    --accent: #002eff;
+    --primary-blue: #002eff;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.gradient-text {
+  color: var(--primary-blue);
+}
+
+.logo-gradient {
+  background: var(--primary-blue);
+}
+
+.section-dark {
+  background: var(--primary-dark);
+}
+
+.section-light {
+  background: var(--primary-light);
+}
+
+/* Hover underline effect for titles - gradient top and bottom lines */
+.hover-underline {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hover-underline::after,
+.hover-underline::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #002eff, #00ffff);
+  bottom: -8px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s ease-out;
+}
+
+.hover-underline::before {
+  top: -8px;
+}
+
+.hover-underline:hover::after,
+.hover-underline:hover::before {
+  transform: scaleX(1);
+}
+
+/* Social media icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fff;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.social-icon i {
+  position: relative;
+  color: #262626;
+  transition: 0.5s;
+  z-index: 3;
+}
+
+.social-icon:hover i {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+.social-icon:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+.social-icon:hover:before {
+  top: 0;
+}
+
+.social-icon.facebook:before {
+  background: #3b5999;
+}
+
+.social-icon.twitter:before {
+  background: #55acee;
+}
+
+.social-icon.linkedin:before {
+  background: #0077b5;
+}
+
+.social-icon.instagram:before {
+  background: #e4405f;
+}
+
+/* Animated button with arrow effect */
+.animated-button {
+  display: flex;
+  align-items: center;
+  padding: 12px 35px;
+  text-decoration: none;
+  font-family: var(--font-nunito), sans-serif;
+  font-weight: 700;
+  color: white;
+  background: #002eff;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  transform: skewX(-10deg);
+  border: none;
+  cursor: pointer;
+}
+
+.animated-button:focus {
+  outline: none;
+}
+
+.animated-button:hover {
+  transition: 0.3s;
+  box-shadow: 8px 8px 0 #00ffff;
+  transform: skewX(-10deg) translateY(-2px);
+}
+
+.animated-button .button-text {
+  transform: skewX(10deg);
+}
+
+.animated-button .button-icon {
+  transition: 0.3s;
+  margin-left: 15px;
+  transform: skewX(10deg);
+}
+
+.animated-button:hover .button-icon {
+  margin-left: 25px;
+}
+
+.animated-button .arrow-path {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+.animated-button:hover .arrow-path {
+  transform: translateX(0%);
+}
+
+@keyframes arrow-glow {
+  0% {
+    fill: white;
+  }
+  50% {
+    fill: #00ffff;
+  }
+  100% {
+    fill: white;
+  }
+}
+
+.animated-button:hover .arrow-path {
+  animation: arrow-glow 1s infinite;
+}
+
+/* Outline animated button variant */
+.animated-button-outline {
+  display: flex;
+  align-items: center;
+  padding: 12px 35px;
+  text-decoration: none;
+  font-family: var(--font-nunito), sans-serif;
+  font-weight: 700;
+  color: #374151;
+  background: transparent;
+  border: 2px solid #d1d5db;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  transform: skewX(-10deg);
+  cursor: pointer;
+}
+
+.animated-button-outline:focus {
+  outline: none;
+}
+
+.animated-button-outline:hover {
+  transition: 0.3s;
+  box-shadow: 8px 8px 0 #00ffff;
+  transform: skewX(-10deg) translateY(-2px);
+  background: #f9fafb;
+}
+
+.animated-button-outline .button-text {
+  transform: skewX(10deg);
+}
+
+.animated-button-outline .button-icon {
+  transition: 0.3s;
+  margin-left: 15px;
+  transform: skewX(10deg);
+}
+
+.animated-button-outline:hover .button-icon {
+  margin-left: 25px;
+}

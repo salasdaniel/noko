@@ -1,0 +1,42 @@
+import type React from "react"
+import type { Metadata } from "next"
+import { Montserrat, Nunito } from "next/font/google"
+import "./globals.css"
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-montserrat",
+})
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-nunito",
+})
+
+export const metadata: Metadata = {
+  title: "NOKO - No Code AI Solutions",
+  description: "Transforming businesses with no-code AI solutions",
+    generator: 'v0.dev'
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className={`${montserrat.variable} ${nunito.variable} font-sans`}>{children}</body>
+    </html>
+  )
+}
