@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { name, email, company, message } = body
+    const { name, email, company, phone, message } = body
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -30,6 +30,7 @@ export async function POST(request: Request) {
             <p style="margin: 10px 0;"><strong>Nombre:</strong> ${name}</p>
             <p style="margin: 10px 0;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #002eff;">${email}</a></p>
             <p style="margin: 10px 0;"><strong>Empresa:</strong> ${company || "No especificada"}</p>
+            <p style="margin: 10px 0;"><strong>Teléfono:</strong> ${phone || "No especificado"}</p>
           </div>
           
           <div style="background: #fff; border: 2px solid #002eff; border-radius: 10px; padding: 25px; margin-bottom: 20px;">
@@ -57,6 +58,7 @@ Nuevo mensaje de contacto desde NOKO
 Nombre: ${name}
 Email: ${email}
 Empresa: ${company || "No especificada"}
+Teléfono: ${phone || "No especificado"}
 
 Mensaje:
 ${message}

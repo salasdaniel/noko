@@ -92,6 +92,7 @@ const translations = {
         name: "Nombre",
         email: "Email",
         company: "Empresa",
+        phone: "Teléfono",
         message: "Mensaje",
         send: "Enviar Mensaje",
         success: "¡Mensaje enviado exitosamente!",
@@ -180,6 +181,7 @@ const translations = {
         name: "Name",
         email: "Email",
         company: "Company",
+        phone: "Phone",
         message: "Message",
         send: "Send Message",
         success: "Message sent successfully!",
@@ -541,6 +543,17 @@ export default function HomePage() {
                     <Input
                       id="company"
                       name="company"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone" className="text-white font-medium">
+                      {t.contact.form.phone}
+                    </Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
                       className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
                     />
                   </div>

@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   title: "NOKO - No Code AI Solutions",
   description: "Transforming businesses with no-code AI solutions",
   generator: "v0.dev",
+  icons: {
+    icon: "/images/noko_logo_transparent.png",
+    shortcut: "/images/noko_logo_transparent.png",
+    apple: "/images/noko_logo_transparent.png",
+  },
 }
 
 export default function RootLayout({
