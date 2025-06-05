@@ -86,7 +86,7 @@ const translations = {
       description: "¿Listo para comenzar tu viaje de IA? Nos encantaría saber de ti.",
       email: "Envíanos un Email",
       call: "Llámanos",
-      visit: "Visítanos",
+      visit: "Ubicación",
       form: {
         title: "Envíanos un Mensaje",
         name: "Nombre",
@@ -175,7 +175,7 @@ const translations = {
       description: "Ready to start your AI journey? We'd love to hear from you.",
       email: "Email Us",
       call: "Call Us",
-      visit: "Visit Us",
+      visit: "Location",
       form: {
         title: "Send Us a Message",
         name: "Name",
@@ -475,7 +475,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <CardTitle className="text-white text-xl">{t.contact.email}</CardTitle>
-                    <CardDescription className="text-gray-300 text-lg">hello@noko.ai</CardDescription>
+                    <CardDescription className="text-gray-300 text-lg">daniel@noko.com.py</CardDescription>
                   </div>
                 </CardHeader>
               </Card>
@@ -487,7 +487,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <CardTitle className="text-white text-xl">{t.contact.call}</CardTitle>
-                    <CardDescription className="text-gray-300 text-lg">+1 (555) 123-4567</CardDescription>
+                    <CardDescription className="text-gray-300 text-lg">+595 991 663 936</CardDescription>
                   </div>
                 </CardHeader>
               </Card>
@@ -499,7 +499,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <CardTitle className="text-white text-xl">{t.contact.visit}</CardTitle>
-                    <CardDescription className="text-gray-300 text-lg">San Francisco, CA</CardDescription>
+                    <CardDescription className="text-gray-300 text-lg">Asuncion, PY</CardDescription>
                   </div>
                 </CardHeader>
               </Card>
