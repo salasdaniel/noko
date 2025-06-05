@@ -9,18 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import Image from "next/image"
-import {
-  Bot,
-  Smartphone,
-  Workflow,
-  MessageSquare,
-  CheckCircle,
-  Mail,
-  Phone,
-  MapPin,
-  Languages,
-  Send,
-} from "lucide-react"
+import { Bot, Smartphone, Workflow, MessageSquare, CheckCircle, Mail, Phone, MapPin, Send } from "lucide-react"
 
 const translations = {
   es: {
@@ -250,11 +239,20 @@ export default function HomePage() {
     setFormStatus("sending")
 
     const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      company: formData.get("company"),
+      message: formData.get("message"),
+    }
 
     try {
-      const response = await fetch("/api/contact.php", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       })
 
       if (response.ok) {
@@ -295,7 +293,6 @@ export default function HomePage() {
               {t.nav.contact}
             </a>
             <AnimatedButton variant="outline" onClick={toggleLanguage} className="text-sm px-4 py-2">
-              <Languages className="w-4 h-4 mr-2" />
               {language === "es" ? "EN" : "ES"}
             </AnimatedButton>
             <AnimatedButton>{t.nav.getStarted}</AnimatedButton>
@@ -309,7 +306,9 @@ export default function HomePage() {
           <Badge className="mb-8 bg-gray-100 text-gray-700 border-gray-200 text-lg px-6 py-2 font-medium hover:text-white transition-colors duration-300">
             {t.hero.badge}
           </Badge>
-          <div className="flex justify-center mb-2">
+
+          {/* Logo and tagline in a div with responsive height */}
+          <div className="flex flex-col items-center justify-center h-[100vh] md:h-[50vh]">
             <Image
               src="/images/noko_logo_transparent.png"
               alt="NOKO Logo"
@@ -317,9 +316,10 @@ export default function HomePage() {
               height={120}
               className="object-contain"
             />
+            <p className="text-[1.650rem] text-gray-600 mt-4 font-light">{t.hero.tagline}</p>
           </div>
-          <p className="text-2xl md:text-3xl text-gray-600 mb-8 font-light">{t.hero.tagline}</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 font-title">{t.hero.subtitle}</h2>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">{t.hero.subtitle}</h2>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">{t.hero.description}</p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <AnimatedButton className="text-lg">{t.hero.startJourney}</AnimatedButton>
@@ -334,9 +334,7 @@ export default function HomePage() {
       <section id="services" className="section-dark py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-6xl md:text-7xl font-black mb-6 font-title text-white hover-underline">
-              {t.services.title}
-            </h2>
+            <h2 className="text-6xl md:text-7xl font-black mb-6 text-white hover-underline">{t.services.title}</h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t.services.description}</p>
           </div>
 
@@ -346,7 +344,7 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-[#002eff] rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                   <Bot className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-white text-xl font-bold font-title">{t.services.chatbots.title}</CardTitle>
+                <CardTitle className="text-white text-xl font-bold">{t.services.chatbots.title}</CardTitle>
                 <CardDescription className="text-gray-300 text-base leading-relaxed">
                   {t.services.chatbots.description}
                 </CardDescription>
@@ -358,9 +356,7 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                   <MessageSquare className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-white text-xl font-bold font-title">
-                  {t.services.conversational.title}
-                </CardTitle>
+                <CardTitle className="text-white text-xl font-bold">{t.services.conversational.title}</CardTitle>
                 <CardDescription className="text-gray-300 text-base leading-relaxed">
                   {t.services.conversational.description}
                 </CardDescription>
@@ -372,7 +368,7 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                   <Workflow className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-white text-xl font-bold font-title">{t.services.automation.title}</CardTitle>
+                <CardTitle className="text-white text-xl font-bold">{t.services.automation.title}</CardTitle>
                 <CardDescription className="text-gray-300 text-base leading-relaxed">
                   {t.services.automation.description}
                 </CardDescription>
@@ -384,7 +380,7 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                   <Smartphone className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-white text-xl font-bold font-title">{t.services.apps.title}</CardTitle>
+                <CardTitle className="text-white text-xl font-bold">{t.services.apps.title}</CardTitle>
                 <CardDescription className="text-gray-300 text-base leading-relaxed">
                   {t.services.apps.description}
                 </CardDescription>
@@ -399,7 +395,7 @@ export default function HomePage() {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-5xl font-black text-gray-900 mb-6 font-title hover-underline">{t.features.title}</h3>
+              <h3 className="text-5xl font-black text-gray-900 mb-6 hover-underline">{t.features.title}</h3>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">{t.features.description}</p>
               <div className="space-y-4">
                 {t.features.list.map((feature, index) => (
@@ -417,19 +413,19 @@ export default function HomePage() {
               <div className="relative bg-white rounded-3xl p-8 border border-gray-200 shadow-xl">
                 <div className="grid grid-cols-2 gap-8">
                   <div className="text-center">
-                    <div className="text-4xl font-black text-[#002eff] mb-2 font-title">50+</div>
+                    <div className="text-4xl font-black text-[#002eff] mb-2">50+</div>
                     <div className="text-gray-600 font-medium">{t.features.stats.projects}</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-black text-[#002eff] mb-2 font-title">24/7</div>
+                    <div className="text-4xl font-black text-[#002eff] mb-2">24/7</div>
                     <div className="text-gray-600 font-medium">{t.features.stats.support}</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-black text-[#002eff] mb-2 font-title">99%</div>
+                    <div className="text-4xl font-black text-[#002eff] mb-2">99%</div>
                     <div className="text-gray-600 font-medium">{t.features.stats.satisfaction}</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-black text-[#002eff] mb-2 font-title">48h</div>
+                    <div className="text-4xl font-black text-[#002eff] mb-2">48h</div>
                     <div className="text-gray-600 font-medium">{t.features.stats.delivery}</div>
                   </div>
                 </div>
@@ -442,7 +438,7 @@ export default function HomePage() {
       {/* About Section */}
       <section id="about" className="section-dark py-20 px-4">
         <div className="container mx-auto text-center">
-          <h3 className="text-5xl font-black text-white mb-8 font-title hover-underline">{t.about.title}</h3>
+          <h3 className="text-5xl font-black text-white mb-8 hover-underline">{t.about.title}</h3>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">{t.about.description}</p>
         </div>
       </section>
@@ -450,7 +446,7 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="section-light py-20 px-4">
         <div className="container mx-auto text-center">
-          <h3 className="text-5xl font-black text-gray-900 mb-6 font-title">{t.cta.title}</h3>
+          <h3 className="text-5xl font-black text-gray-900 mb-6">{t.cta.title}</h3>
           <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">{t.cta.description}</p>
           <div className="flex justify-center">
             <AnimatedButton className="text-xl px-12 py-4">{t.cta.button}</AnimatedButton>
@@ -462,7 +458,7 @@ export default function HomePage() {
       <section id="contact" className="section-dark py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h3 className="text-6xl font-black text-white mb-6 font-title hover-underline">{t.contact.title}</h3>
+            <h3 className="text-6xl font-black text-white mb-6 hover-underline">{t.contact.title}</h3>
             <p className="text-xl text-gray-300">{t.contact.description}</p>
           </div>
 
@@ -475,7 +471,7 @@ export default function HomePage() {
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <CardTitle className="text-white text-xl font-title">{t.contact.email}</CardTitle>
+                    <CardTitle className="text-white text-xl">{t.contact.email}</CardTitle>
                     <CardDescription className="text-gray-300 text-lg">hello@noko.ai</CardDescription>
                   </div>
                 </CardHeader>
@@ -487,7 +483,7 @@ export default function HomePage() {
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <CardTitle className="text-white text-xl font-title">{t.contact.call}</CardTitle>
+                    <CardTitle className="text-white text-xl">{t.contact.call}</CardTitle>
                     <CardDescription className="text-gray-300 text-lg">+1 (555) 123-4567</CardDescription>
                   </div>
                 </CardHeader>
@@ -499,7 +495,7 @@ export default function HomePage() {
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <CardTitle className="text-white text-xl font-title">{t.contact.visit}</CardTitle>
+                    <CardTitle className="text-white text-xl">{t.contact.visit}</CardTitle>
                     <CardDescription className="text-gray-300 text-lg">San Francisco, CA</CardDescription>
                   </div>
                 </CardHeader>
@@ -509,7 +505,7 @@ export default function HomePage() {
             {/* Contact Form */}
             <Card className="bg-white/5 border-white/10 backdrop-blur-lg">
               <CardHeader>
-                <CardTitle className="text-white text-3xl font-bold font-title">{t.contact.form.title}</CardTitle>
+                <CardTitle className="text-white text-3xl font-bold">{t.contact.form.title}</CardTitle>
               </CardHeader>
               <div className="p-6 pt-0">
                 <form onSubmit={handleSubmit} className="space-y-6">

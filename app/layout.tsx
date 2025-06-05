@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Montserrat, Nunito } from "next/font/google"
+import { Montserrat } from "next/font/google"
 import "./globals.css"
 
 const montserrat = Montserrat({
@@ -9,16 +9,10 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 })
 
-const nunito = Nunito({
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-nunito",
-})
-
 export const metadata: Metadata = {
   title: "NOKO - No Code AI Solutions",
   description: "Transforming businesses with no-code AI solutions",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -36,7 +30,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${montserrat.variable} ${nunito.variable} font-sans`}>{children}</body>
+      <body className={`${montserrat.variable} font-sans`}>{children}</body>
     </html>
   )
 }

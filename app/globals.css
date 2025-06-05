@@ -6,10 +6,6 @@ body {
   font-family: var(--font-montserrat), sans-serif;
 }
 
-.font-title {
-  font-family: var(--font-nunito), sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -219,7 +215,6 @@ body {
   align-items: center;
   padding: 12px 35px;
   text-decoration: none;
-  font-family: var(--font-nunito), sans-serif;
   font-weight: 700;
   color: white;
   background: #002eff;
@@ -285,7 +280,6 @@ body {
   align-items: center;
   padding: 12px 35px;
   text-decoration: none;
-  font-family: var(--font-nunito), sans-serif;
   font-weight: 700;
   color: #374151;
   background: transparent;
