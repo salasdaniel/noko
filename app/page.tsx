@@ -304,14 +304,14 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="section-light pt-32 pb-20 px-4">
+      <section className="section-light py-12 md:py-20 px-4">
         <div className="container mx-auto text-center">
           <Badge className="mb-8 bg-gray-100 text-gray-700 border-gray-200 text-lg px-6 py-2 font-medium hover:text-white transition-colors duration-300">
             {t.hero.badge}
           </Badge>
 
           {/* Logo and tagline in a div with responsive height */}
-          <div className="flex flex-col items-center justify-center h-[100vh] md:h-[50vh]">
+          <div className="flex flex-col items-center justify-center h-[50vh]">
             <Image
               src="/images/noko_logo_transparent.png"
               alt="NOKO Logo"
@@ -334,10 +334,12 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="section-dark py-20 px-4">
+      <section id="services" className="section-dark py-12 md:py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-6xl md:text-7xl font-black mb-6 text-white hover-underline">{t.services.title}</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-white hover-underline">
+              {t.services.title}
+            </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t.services.description}</p>
           </div>
 
@@ -394,11 +396,11 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="section-light py-20 px-4">
+      <section className="section-light py-12 md:py-20 px-4">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-5xl font-black text-gray-900 mb-6 hover-underline">{t.features.title}</h3>
+              <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 hover-underline">{t.features.title}</h3>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">{t.features.description}</p>
               <div className="space-y-4">
                 {t.features.list.map((feature, index) => (
@@ -439,17 +441,17 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="section-dark py-20 px-4">
+      <section id="about" className="section-dark py-12 md:py-20 px-4">
         <div className="container mx-auto text-center">
-          <h3 className="text-5xl font-black text-white mb-8 hover-underline">{t.about.title}</h3>
+          <h3 className="text-3xl md:text-5xl font-black text-white mb-8 hover-underline">{t.about.title}</h3>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">{t.about.description}</p>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="section-light py-20 px-4">
+      <section className="section-light py-12 md:py-20 px-4">
         <div className="container mx-auto text-center">
-          <h3 className="text-5xl font-black text-gray-900 mb-6">{t.cta.title}</h3>
+          <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">{t.cta.title}</h3>
           <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">{t.cta.description}</p>
           <div className="flex justify-center">
             <AnimatedButton className="text-xl px-12 py-4">{t.cta.button}</AnimatedButton>
@@ -458,14 +460,14 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section-dark py-20 px-4">
+      <section id="contact" className="section-dark py-12 md:py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h3 className="text-6xl font-black text-white mb-6 hover-underline">{t.contact.title}</h3>
+            <h3 className="text-4xl md:text-6xl font-black text-white mb-6 hover-underline">{t.contact.title}</h3>
             <p className="text-xl text-gray-300">{t.contact.description}</p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 max-w-6xl mx-auto">
             {/* Contact Info */}
             <div className="space-y-8">
               <Card className="bg-white/5 border-white/10 backdrop-blur-lg">
@@ -508,11 +510,11 @@ export default function HomePage() {
             {/* Contact Form */}
             <Card className="bg-white/5 border-white/10 backdrop-blur-lg">
               <CardHeader>
-                <CardTitle className="text-white text-3xl font-bold">{t.contact.form.title}</CardTitle>
+                <CardTitle className="text-white text-2xl md:text-3xl font-bold">{t.contact.form.title}</CardTitle>
               </CardHeader>
               <div className="p-6 pt-0">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="text-white font-medium">
                         {t.contact.form.name}
@@ -588,7 +590,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="section-light py-12 px-4 border-t border-gray-200">
+      <footer className="section-light py-12 md:py-20 px-4 border-t border-gray-200">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
