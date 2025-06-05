@@ -245,6 +245,7 @@ export default function HomePage() {
       name: formData.get("name"),
       email: formData.get("email"),
       company: formData.get("company"),
+      phone: formData.get("phone"),
       message: formData.get("message"),
     }
 

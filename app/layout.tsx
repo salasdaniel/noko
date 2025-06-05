@@ -14,9 +14,26 @@ export const metadata: Metadata = {
   description: "Transforming businesses with no-code AI solutions",
   generator: "v0.dev",
   icons: {
-    icon: "/images/noko_logo_transparent.png",
+    icon: [
+      {
+        url: "/images/noko_logo_transparent.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/images/noko_logo_transparent.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+    ],
     shortcut: "/images/noko_logo_transparent.png",
-    apple: "/images/noko_logo_transparent.png",
+    apple: [
+      {
+        url: "/images/noko_logo_transparent.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
 }
 
